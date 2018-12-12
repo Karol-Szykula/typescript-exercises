@@ -14,16 +14,21 @@ interface NaszTyp {
     dodatkowe?: string
 }
 
-interface Zwierzak {
+interface Zwierzak extends NaszTyp {
     rasa: string
 }
 
-type Hybrid = NaszTyp | Zwierzak
+interface Animal {
+    rasa: string
+}
+
+type Hybrid = NaszTyp & Animal
 
 function wypiszWartosci(param: Hybrid): void {
     console.log(param.nazwa)
     console.log(param.wiek)
     console.log(param.dodatkowe)
+    console.log(param.rasa)
 }
-let testowyObiekt = { nazwa: 'testowy', wiek: 1, dodatkowe: '2', opcjonalne: 3 }
+let testowyObiekt = { nazwa: 'testowy', wiek: 1, dodatkowe: '2', rasa: 'husky' }
 wypiszWartosci(testowyObiekt)
