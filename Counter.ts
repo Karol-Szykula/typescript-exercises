@@ -1,0 +1,4 @@
+interface Counter {
+    value: number
+}
+
